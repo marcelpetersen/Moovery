@@ -118,7 +118,7 @@ App.controller('languageSelectCtlr', function($scope, $translate, $rootScope){
 	};
 });
 
-App.controller('SettingsController', function($scope, $translate) {
+App.controller('SettingsController', function($scope, $translate,$cordovaLocalNotification,$ionicPlatform) {
 	
 	var value=false;
 	
@@ -138,6 +138,6 @@ App.controller('SettingsController', function($scope, $translate) {
 	}
 	$scope.isEnableNotification=value;
 	};
-	
+	//call notification
 	
 });
