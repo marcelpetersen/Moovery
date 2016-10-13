@@ -1,0 +1,690 @@
+/*------------------------------------*\
+	# HELPERS
+\*------------------------------------*/
+
+.full-width {
+	width: 100%;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+/* Length of progress bars in image cards */
+.width-40 {
+	width: 40%;
+}
+
+.align-justify {
+	text-align: justify;
+}
+
+.tab-active {
+	border-bottom: 2px solid #49b30c;
+	font-weight: bold;
+	color: #444;
+}
+
+.title {
+	color: #fff;
+}
+
+a {
+	color: black;
+}
+
+a.title {
+	text-decoration: none;
+}
+
+a.item {
+	color: #444;
+}
+
+.border-radius-top {
+	-webkit-border-top-left-radius: 2px;
+	-webkit-border-top-right-radius: 2px;
+	-moz-border-radius-topleft: 2px;
+	-moz-border-radius-topright: 2px;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+}
+
+.border-radius-bottom {
+	-webkit-border-bottom-right-radius: 2px;
+	-webkit-border-bottom-left-radius: 2px;
+	-moz-border-radius-bottomright: 2px;
+	-moz-border-radius-bottomleft: 2px;
+	border-bottom-right-radius: 2px;
+	border-bottom-left-radius: 2px;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.center-vertically {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	padding-left: 60px;
+	padding-right: 60px;
+	margin-top: 50%;
+	position: absolute;
+	width: 100%;
+}
+
+.no-margin-bottom {
+	margin-bottom: 0px!important;
+}
+
+/*------------------------------------*\
+	# NAVIGATION
+\*------------------------------------*/
+
+.bar.bar-stable {
+	border-color: #49b30c;
+}
+
+.bar-balanced-dark {
+	background-color: #49b30b;
+}
+
+
+/*------------------------------------*\
+	# IMAGE CARDS
+\*------------------------------------*/
+
+/* All the cards with background images.
+// Those are links on the home page, but
+// just divs on the other pages
+*/
+
+a.photo-card {
+	display: -webkit-flexbox;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	color: #fff;
+	font-size: 24px;
+}
+
+div.photo-card {
+	display: -webkit-flexbox;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	color: #fff;
+	font-size: 24px;
+}
+
+/* Cards on home screen */
+.office-training {
+	background-size: cover;
+	background-image: url(../img/office1.jpg);
+	height: 50%;
+	background-position: center center;
+}
+
+.instant-training {
+	background-size: cover;
+	background-image: url(../img/office3.jpg);
+	height: 50%;
+	background-position: center center;
+}
+
+.statistics {
+	background-size: cover;
+	background-image: url(../img/office2.jpg);
+	height: 33%;
+	background-position: center center;
+}
+
+/* Cards on instant training tab */
+.body-area {
+	background-size: cover;
+	background-image: url(../img/office1.jpg);
+	height: 50%;
+	background-position: center center;
+}
+
+.emotion {
+	background-size: cover;
+	background-image: url(../img/office2.jpg);
+	height: 50%;
+	background-position: center center;
+}
+
+
+/*------------------------------------*\
+	# PROGRESS BARS
+\*------------------------------------*/
+
+/* Level progress bar = on image cards
+// Exercise progress bar = below video
+// in training view
+*/
+
+/* Level progress bar */
+
+progress {
+	background-color: #fff;
+	height: 2px;
+	margin: 13px 10px 0px 0px;
+	border: none;
+}
+
+progress::-webkit-progress-bar {  
+	background-color: #fff;
+	height: 2px;
+}
+
+progress::-webkit-progress-value {  
+	background-color: #66cc33;
+	height: 2px;
+}
+
+progress::-moz-progress-bar {  
+	background-color: #66cc33;
+	height: 2px;
+}
+
+/* Exercise overall progress bar */
+.overall-exercises progress {
+	background-color: #f0b840;
+}
+
+.overall-exercises progress::-webkit-progress-bar{  
+	background-color: #f0b840;
+	
+}
+
+.overall-exercises progress::-webkit-progress-value {  
+	background-color: #66cc33;
+	height: 2px;
+}
+
+.overall-exercises progress::-moz-progress-bar {  
+	background-color: #66cc33;
+	height: 2px;
+}
+
+.overall-exercises progress::-moz-progress {  
+	background-color: #66cc33;
+	height: 2px;
+}
+
+
+/*------------------------------------*\
+	# POPUPS
+\*------------------------------------*/
+
+.popup-container .popup {
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.popup-container input {
+	padding-left: 4px;
+}
+
+
+/*------------------------------------*\
+	# OTHER STUFF
+\*------------------------------------*/
+
+.level {
+	font-size: 12px;
+}
+
+.secondary-margin {
+	margin: 49px 15px 0px 15px;
+}
+
+.counter {
+	font-weight: bold;
+	font-size: 16px;
+	margin-top: 3px;
+}
+
+.sign-in-background {
+	background-image: url(../img/sign-in.jpg);
+	background-size:auto 100%;
+}
+
+.sign-up-background {
+	background-image: url(../img/sign-in.jpg);
+	background-size: auto 100%;
+}
+
+.forgot-password-background{
+	background-image: url(../img/sign-in.jpg);
+	background-size: auto 100%;
+}
+
+.contact-background {
+	background-image: url(../img/contact.jpg);
+	background-size: auto 100%;
+	color: #fff;
+}
+
+.contact-background h4, .contact-background a {
+	color: #fff;
+}
+
+.logout-background{
+	background-image: url(../img/logout.jpg);
+	background-repeat: no-repeat;
+    background-position: center;
+    background-color: #000;
+	color: #fff;
+	background-size: auto 100%;
+}
+
+/* Centers an object vertically and horizontally */
+.center2{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.center2 label {
+	margin: 0px;
+}
+
+/* Makes icons visible in v- & h-centered objects */
+.centered-with-icon {
+	display: -moz-box;
+	display: -webkit-box;
+	display: box;
+	min-width: 220px;
+}
+
+/* Prevents black background on tabs on Android*/
+.tabs-striped.tabs-positive .tabs {
+	background: none;
+}
+
+.secondary-margin .col {
+	margin-top: 0px;
+	padding-top: 0px;
+}
+
+.secondary-margin .row {
+	padding: 0px;
+}
+
+.secondary-margin h3 {
+	padding-top: 15px;
+}
+
+.slider{
+	position: absolute !important;
+	top: 0 !important;
+	bottom: 0 !important;
+	left: 0 !important ;
+	right: 0 !important;
+}
+
+.statistic-tabs {
+	margin-top: 64px; border-right: none;
+}
+
+.tabs-striped.tabs-background-positive .tab-item {
+	color: #444;
+}
+
+a.emotion-card, a.area-card {
+	display: -webkit-flexbox;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	color: #fff;
+	font-size: 24px;
+}
+
+.emotion-card {
+	height: 33%;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 28px;
+}
+
+.area-card {
+	height: 25%;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 28px;
+	background: transparent;
+}
+
+.area {
+	background-image: url(../img/body.jpg);
+	background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+	background-color:#bebebe;
+}
+
+a.area{
+	color: #fff;
+	font-size: 100px;
+}
+
+.max-height {
+	height: 100%;
+}
+
+.breath-circle {
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+	background-color: #333;
+	opacity: 0.7;
+	-moz-animation: pulse 2s infinite linear;
+	-webkit-animation: pulse 2s infinite linear;
+}
+
+@-webkit-keyframes pulse { 
+	0% { -webkit-transform: scale(1); } 
+	50% { -webkit-transform: scale(1.5); } 
+	100% { -webkit-transform: scale(1); } 
+}
+
+@keyframes pulse { 
+	0% { transform: scale(1); } 
+	50% { transform: scale(1.5); } 
+	100% { transform: scale(1); } 
+}
+
+.tabs-background-positive .tabs, .tabs-background-positive > .tabs {
+	border-color: #ddd;
+}
+
+.tabs-striped.tabs-positive .tab-item {
+	color: #000;
+}
+
+.video-container {
+	display: table;
+	min-height: 200px;
+	width: 100%;
+	text-align: center;
+	font-size: 100px;
+}
+
+.countdown {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.plan {
+	padding-top: 0px;
+}
+
+.plan td {
+	min-width: 30px;
+	text-align: center;
+}
+
+.width-70 {
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.welcome-to-plan h3 {
+	margin-top: 20px!important;
+}
+
+.about-us-img {
+	width: 100%;
+}
+
+.about-us-title {
+	font-style: italic;
+}
+
+.video-container img {
+	width: 100%;
+}
+
+.exercise-description {
+	font-size: 12px;
+}
+
+.instant-exercise-buttons {
+	text-align: center;
+}
+
+.instant-exercise-buttons button {
+	margin: 10px 5px 15px 5px;
+}
+
+video {
+	width: 100%;
+}
+
+.auth-links a{
+	color: #000;
+	font-size: 14px;
+}
+
+.login-form .scroll {
+	height: 100%;
+}
+
+.login-form .login-form-wrapper {
+	position: absolute;
+	top:40%;
+	left: 0;
+	right: 0;
+	margin-top: -55px;
+	height:60%;
+}
+
+.login-form .item-input-rounded {
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+
+.login-form-wrapper-big {
+	margin-top: -96px!important;
+}
+
+.login-form-wrapper-middle {
+	margin-top: -70px!important;
+}
+
+
+/*------------------------------------*\
+	# VIDEOGULAR OVERWRITES
+\*------------------------------------*/
+
+videogular vg-poster, [videogular] vg-poster {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    display: block;
+    z-index: 1;
+    top: 0;
+    pointer-events: none;
+}
+ videogular vg-poster img, [videogular] vg-poster img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    position: absolute; 
+}
+  videogular vg-poster img.pause,
+  videogular vg-poster img.play, [videogular] vg-poster img.pause,
+  [videogular] vg-poster img.play {
+    display: none;
+}
+  videogular vg-poster img.stop, [videogular] vg-poster img.stop {
+    display: block; 
+}
+  videogular vg-overlay-play, [videogular] vg-overlay-play {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+}
+  videogular vg-overlay-play .play:before, [videogular] vg-overlay-play .play:before {
+    content: "\e000";
+}
+  videogular vg-overlay-play .overlayPlayContainer, [videogular] vg-overlay-play .overlayPlayContainer {
+    font-size: 100px;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    display: table;
+    cursor: pointer;
+    zoom: 1;
+    filter: alpha(opacity=60);
+    opacity: 0.6; }
+  videogular vg-overlay-play .overlayPlayContainer div, [videogular] vg-overlay-play .overlayPlayContainer div {
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+}
+
+
+videogular, [videogular], videogular vg-media, [videogular] vg-media {
+	display: table!important;
+	height: inherit!important;
+}
+
+videogular vg-media video, [videogular] vg-media video {
+	height: inherit!important;
+}
+
+
+/*------------------------------------*\
+	# TEMP FIXES BECAUSE OF EDGY IONIC VERSION
+\*------------------------------------*/
+
+.button.button-light {
+	border-color: #ccc;
+}
+
+.button.button-stable {
+	border-color: #a2a2a2;
+}
+
+.button.button-positive {
+	border-color: #0c60ee;
+}
+
+.button.button-calm {
+	border-color: #0a9dc7;
+}
+
+.button.button-balanced {
+	border-color: #28a54c;
+}
+
+.button.button-energized {
+	border-color: #e6b500;
+}
+
+.button.button-assertive {
+	border-color: #e42112;
+}
+
+.button.button-royal {
+	border-color: #6b46e5;
+}
+
+.button.button-dark {
+	border-color: #000;
+}
+
+
+.color-green{
+	color:#fff !important;
+	background: #33cd5f !important;
+	border-color:#33cd5f !important;
+	padding:0px 10px 0px 10px;
+	margin-top:30px;
+}
+
+.margin-50{
+	position:relative;
+	top:50;
+}
+
+#page-input1 input[type="time"]{
+	    /* width: 8% !important; */
+    float: left;
+    /* margin-left: 38px; */
+    text-align: right;
+}
+
+
+
+@media screen and (max-width:568px) and (min-width:568px) {
+		.sign-in-background {
+	background-image: url(../img/sign-in.jpg);
+	background-size:100% 100%;
+		}
+}
+
+@media (min-width:200px) and (max-width:360px) {
+   #page-input1 .input-label{
+	width:55% !important;
+}
+  }
+
+@media (min-width:460px) and (max-width:1024px) {
+   #page-input1 .input-label{
+	width:60% !important;
+}
+
+#page-input1 input[type="time"]{
+		margin-right: -35px;
+	}
+  }
+

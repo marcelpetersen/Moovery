@@ -1,0 +1,40 @@
+<ion-view hide-nav-bar="true">
+	<ion-content class="sign-in-background login-form">
+		<div class="login-form-wrapper login-form-wrapper-middle">
+			<form name="signInForm" ng-submit="signIn(user.username, user.password)" class="width-70">
+				<label class="item item-input centered-with-icon border-radius-top">
+					<input type="email" name="input" value="" ng-model="user.username" placeholder="{{'SIGN_IN_INPUT_EMAIL_ADDRESS' | translate}}" overwrite-email required>
+					<i class="icon ion-checkmark balanced padding-right" ng-show="signInForm.input.$valid">
+					</i>
+					<i class="icon ion-close assertive padding-right" ng-show="signInForm.input.$error.email">
+					</i>
+				</label>
+				<label class="item item-input border-radius-bottom">
+					<input type="password" value="" ng-model="user.password" placeholder="{{'SIGN_IN_INPUT_PASSWORD' | translate}}" required>
+				</label>
+				<button type="submit" ng-disabled="signInForm.$invalid" class="button button-block button-balanced no-margin-bottom">
+					<strong translate="SIGN_IN_BUTTON_SIGN_IN">
+						Sign in
+					</strong>
+				</button>
+				<div class="spacer" style="width: 300px; height: 5px;"></div>
+				<div class="row row-no-padding">
+					<div class="col auth-links no-margin-bottom">
+						<a href="#/sign-up" translate="SIGN_IN_LINK_SIGN_UP" class="button button-small  button-light color-green">
+							Sign up
+						</a>
+						<a href="#/forgot-password" translate="SIGN_IN_LINK_FORGOT_PASSWORD" class="button button-small  button-light pull-right color-green">
+							Forgot password?
+						</a>
+					</div>
+				</div>
+				<!--<a href="#/forgot-password" translate="SIGN_IN_LINK_FORGOT_PASSWORD" class="forgot-password mt-20">
+							Forgot password?
+						</a>
+				<a href="#/sign-up" translate="SIGN_IN_LINK_SIGN_UP" class="button button-block button-balanced no-margin-bottom mt-50">
+							Sign up
+						</a>-->
+			</form>
+		</div>
+	</ion-content>
+</ion-view>

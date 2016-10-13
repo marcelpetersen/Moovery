@@ -1,0 +1,42 @@
+<ion-view view-title="{{ 'APP_NAME' | translate }}">
+	<ion-content ng-controller="PlanController">
+		<div class="list">
+			<a class="item photo-card office-training" ui-sref="tabs.plan">
+				<ul class="width-40">
+					<li class="uppercase" translate="HOME_EXERCISE_PLAN">
+					</li>
+					<li>
+						<progress max="20" value="{{progressBarValue}}" class="pull-left">
+						</progress>
+						<span class="level">
+							<span>
+								{{daysLeft}}
+							</span>
+							<span>
+								{{daysLeftText}}
+							</span>
+						</span>
+					</li>
+				</ul>
+			</a>
+			<a class="item photo-card instant-training" ui-sref="tabs.instantarea">
+				<ul class="width-40">
+					<li class="uppercase" translate="HOME_INSTANT_EXERCISE">
+					</li>
+				</ul>
+			</a>
+			<!--<a class="item photo-card statistics" ui-sref="tabs.statistics">
+				<ul class="width-40">
+					<li class="uppercase" translate="HOME_STATISTICS">
+					</li>
+					<li>
+						<progress max="100" value="20" class="pull-left">
+						</progress>
+						<span class="level" translate="HOME_STATISTICS_LEVEL">
+						</span>
+					</li>
+				</ul>
+			</a>-->
+		</div>
+	</ion-content>
+</ion-view>

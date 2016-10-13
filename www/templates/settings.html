@@ -1,0 +1,101 @@
+<ion-view view-title="{{ 'SETTINGS_NAVBAR_TITLE' | translate }}">
+	<ion-content>
+		<div class="list" ng-controller="SettingsController">
+			<!--<div class="item item-divider" translate="SETTINGS_DIVIDER_EXERCISES">
+				Exercises
+			</div>
+			<label class="item item-input item-select">
+				<div class="input-label" translate="SETTINGS_AMOUNT_EXERCISES">
+					Exercises per day
+				</div>
+				<select ng-model="selection">
+					<option value="2" selected>
+						2x
+					</option>
+					<option>
+						1x
+					</option>
+				</select>
+			</label>
+			<div class="item item-toggle">
+				<span translate="SETTINGS_NOTIFICATIONS">
+					Notifications
+				</span>
+				<label class="toggle toggle-balanced">
+					<input type="checkbox" id="notifications" ng-model="ModelData.notifications"/>
+					<div class="track">
+						<div class="handle">
+						</div>
+					</div>
+				</label>
+				<p ng-show="ModelData.notifications" translate="SETTINGS_NOTIFICATIONS_SUBTEXT">
+					Push notifications on your phone
+				</p>
+			</div>
+			<label class="item item-input" ng-show="ModelData.notifications">
+				<div class="input-label" translate="SETTINGS_NOTIFICATIONS_TIME">
+					Timer
+				</div>
+				<div>
+					<input type="time">
+				</div>
+			</label>
+			<label class="item item-input" ng-show="selection=='2' && ModelData.notifications">
+				<div class="input-label" translate="SETTINGS_NOTIFICATIONS_TIME_2">
+					Second timer
+				</div>
+				<div>
+					<input type="time">
+				</div>
+			</label>
+			<div class="item item-toggle" ng-show="ModelData.notifications">
+				<span translate="SETTINGS_NOTIFICATIONS_EMAIL">
+					Email
+				</span>
+				<label class="toggle toggle-balanced">
+					<input type="checkbox"/>
+					<div class="track">
+						<div class="handle">
+						</div>
+					</div>
+				</label>
+				<p ng-show="ModelData.notifications" translate="SETTINGS_NOTIFICATIONS_EMAIL_SUBTEXT">
+					Send me an email too
+				</p>
+			</div>-->
+			<div class="item item-divider" translate="SETTINGS_DIVIDER_BASICS">
+				Notifications
+			</div>
+			<ion-toggle toggle-class="toggle-balanced" ng-model="value" ng-change="NotificationtoggleChange()" id="notificationtoggle1">Notifications</ion-toggle>
+			<div ng-hide="!isEnableNotification">
+		   <label class="item item-input" id="page-input1">
+                <span class="input-label">Input</span>
+                <input type="time" placeholder="">
+            </label>
+            <ion-toggle toggle-class="toggle-balanced"  id="page-toggle2">Also on weekends</ion-toggle>
+			</div>
+			<div class="item item-divider" translate="SETTINGS_DIVIDER_BASICS">
+				Basics
+			</div>
+			<label class="item item-input item-select">
+				<div class="input-label" translate="SETTINGS_BASICS_LANGUAGE">
+					Language
+				</div>
+				<select ng-controller="languageSelectCtlr" ng-change="changeLanguage()" ng-model="languageSelectModel">
+					<option selected translate="SETTINGS_BASICS_LANGUAGE_ENGLISH" value="en">
+						English
+					</option>
+					<option translate="SETTINGS_BASICS_LANGUAGE_GERMAN" value="de">
+						Deutsch
+					</option>
+				</select>
+			</label>
+			<a class="item" href="#/tab/change-mail" translate="SETTINGS_BASICS_CHANGE_MAIL">
+				Change Mail
+			</a>
+			<a class="item" href="#/tab/change-password" translate="SETTINGS_BASICS_CHANGE_PASSWORD">
+				Change Password
+			</a>
+		</div>
+	</ion-content>
+</ion-view>

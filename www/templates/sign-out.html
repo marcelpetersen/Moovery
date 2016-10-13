@@ -1,0 +1,15 @@
+<ion-view view-title="{{'SIGN_OUT_NAVBAR_TITLE' | translate}}">
+	<ion-content class="login-form logout-background">
+		<div class="login-form-wrapper login-form-wrapper-big">
+			<div class="width-70">
+				<span ng-bind-html="'SIGN_OUT_CONTENT' | translate">
+					It is not a big suprise if we tell you that <br />you need to login again if you log out now, right? <br /> So we don't recommend it, but it's a free world :).
+				</span>
+				<button class="button button-block button-balanced" ng-click="logout()">
+					<strong translate="SIGN_OUT_BUTTON_LOG_OUT">
+					</strong>
+				</button>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

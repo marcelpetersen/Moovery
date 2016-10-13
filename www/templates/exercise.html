@@ -1,0 +1,48 @@
+<ion-view view-title="{{ 'PLAN_OVERVIEW_NAVBAR_TITLE' | translate }}">
+	<ion-content ng-controller="ExerciseController" class="center">
+		<div ng-if="!exercisesFinished">
+
+			<div class="video-container">
+				<videogular vg-plays-inline="true" vg-auto-play="true">
+					<vg-media vg-src="video.sources" vg-native-controls="false" vg-loop="true">
+					</vg-media>
+				</videogular>
+			</div>
+
+			<div class="row" class="exercise-description">
+				<div class="col" data-ng-bind-html="textDescription | translate">
+					Here is a written intro description of the exercise.
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<button type="button" class="button button-block button-balanced" data-ng-click="playManually()" ng-hide="showFinishedButton">
+						{{ 'PLAN_START_MANUALLY_BUTTON_TEXT' | translate }}
+					</button>
+					<button type="button" class="button button-block button-balanced" data-ng-click="finishedExerciseManually()" ng-hide="!showFinishedButton" >
+						{{ 'PLAN_FINISHED_BUTTON_TEXT' | translate }}
+					</button>
+				</div>
+			</div>
+		</div>
+		
+		<div ng-if="exercisesFinished">
+			<div class="width-70">
+				<div class="row">
+					<h1 data-ng-bind-html="successHeadline | translate">
+						Well done!
+					</h1>
+				</div>
+				<div class="row">
+					<p data-ng-bind-html="successMessage | translate">
+						You'll be jumping around for quite a while, as you've just significantly decreased the likeness of spine disorders.
+					</p>
+				</div>
+				<a class="button button-block button-balanced" ng-click="saveResults()">
+					{{ 'PLAN_SUCCESS_BUTTON' | translate }}
+				</a>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

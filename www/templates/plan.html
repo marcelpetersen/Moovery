@@ -1,0 +1,162 @@
+<ion-view view-title="{{ 'PLAN_OVERVIEW_NAVBAR_TITLE' | translate }}" ng-controller="PlanController">
+	<ion-content>
+		<div ng-if="!showWelcomeToPlanMessage">
+			<div class="list">
+				<div class="item photo-card office-training">
+					<ul class="width-40">
+						<li>
+							<span translate="PLAN_OVERVIEW_TODAY">
+								Today: 
+							</span>
+							<span>
+								{{ planTitle | translate }}
+							</span>
+						</li>
+						<li>
+							<progress max="20" value="{{progressBarValue}}" class="pull-left">
+							</progress>
+							<span class="level">
+								<span>
+									{{daysLeft}}
+								</span>
+								<span>
+									{{daysLeftText}}
+								</span>
+							</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="padding plan">
+				<!--<table>
+					<tr>
+						<td>
+						</td>
+						<td>
+							Mo
+						</td>
+						<td>
+							Di
+						</td>
+						<td>
+							Mi
+						</td>
+						<td>
+							Do
+						</td>
+						<td>
+							Fr
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Week 1
+						</td>
+						<td>
+							<i class="icon ion-android-checkmark-circle"></i>
+						</td>
+						<td>
+							<i class="icon ion-android-radio-button-on"></i>
+						</td>
+						<td>
+							<i class="icon ion-android-radio-button-off"></i>
+						</td>
+						<td>
+							<i class="icon ion-android-radio-button-off"></i>
+						</td>
+						<td>
+							<i class="icon ion-android-radio-button-off"></i>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Week 2
+						</td>
+						<td>
+							<i class="icon ion-android-radio-button-off"></i>
+						</td>
+						<td>
+							<i class="icon ion-android-radio-button-off"></i>
+						</td>
+						<td>
+							<i class="icon ion-android-radio-button-off"></i>
+						</td>
+						<td>
+							<i class="icon ion-android-radio-button-off"></i>
+						</td>
+						<td>
+							<i class="icon ion-android-radio-button-off"></i>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Week 3
+						</td>
+						<td>
+							<i class="icon ion-android-radio-button-off"></i>
+						</td>
+						<td>
+							<i class="icon ion-android-radio-button-off"></i>
+						</td>
+						<td>
+							<i class="icon ion-android-radio-button-off"></i>
+						</td>
+						<td>
+							<i class="icon ion-android-radio-button-off"></i>
+						</td>
+						<td>
+							<i class="icon ion-android-radio-button-off"></i>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Week 4
+						</td>
+						<td>
+							<i class="icon ion-android-radio-button-off"></i>
+						</td>
+						<td>
+							<i class="icon ion-android-radio-button-off"></i>
+						</td>
+						<td>
+							<i class="icon ion-android-radio-button-off"></i>
+						</td>
+						<td>
+							<i class="icon ion-android-radio-button-off"></i>
+						</td>
+						<td>
+							<i class="icon ion-android-radio-button-off"></i>
+						</td>
+					</tr>
+				</table>-->
+				<h4 data-ng-bind-html="'PLAN_OVERVIEW_TODAYS_EXERCISE' | translate">
+					Today's exercises
+				</h4>
+				<p data-ng-bind-html="planDescription | translate">
+					Today you do something for your spine. It's a reason why a lot of people have troubles jumping when they're older.
+				</p>
+			</div>
+		</div>
+		<div ng-if="showWelcomeToPlanMessage" class="width-70 welcome-to-plan">
+			<h3 data-ng-bind-html="welcomeMessageHeadline | translate">
+				Welcome to your first month of Moovery :)!
+			</h3>
+			<div data-ng-bind-html="welcomeMessageText | translate">
+				<p>
+					That's <strong>seriously</strong> a huge step.
+				</p>
+				<p>
+					After finishing this month you'll have significantly lowered your risk of office diseases.
+				</p>
+				<p>
+					This is the first step to a painless future!
+				</p>
+			</div>
+		</div>
+	</ion-content>
+	<ion-footer-bar align-title="center" class="bar-balanced">
+		<a class="title" ng-click="goToExercise()">
+			Start
+		</a>
+	</ion-footer-bar>
+</ion-view>

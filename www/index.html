@@ -1,0 +1,102 @@
+<html ng-app="ionicApp">
+ <head>
+ 	<meta charset="utf-8">
+ 	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+ 	<title></title>
+
+	<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/videogular.css" rel="stylesheet">
+	<link rel="stylesheet" href="lib/angular-chart.js/dist/angular-chart.css">
+
+	<!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+		<link href="css/ionic.app.css" rel="stylesheet">
+	-->
+
+	<!-- ionic/angularjs js -->
+	<script src="lib/ionic/js/ionic.bundle.js"></script>
+	<script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
+	<script src="lib/firebase/firebase.js"></script>
+	<script src="lib/angularfire/dist/angularfire.js"></script>
+	<script src="lib/underscore/underscore.js"></script>
+	<script src="lib/videogular/videogular.js"></script>
+	<script src="lib/videogular-poster/vg-poster.js"></script>
+
+	<!-- angular wrapper for cordova plugins -->
+	<script src="js/ng-cordova.min.js"></script>
+
+	<!-- cordova script (this will be a 404 during development) -->
+	<!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+	<!-- <script src="cordova.js"></script> -->
+
+	<!-- your app's js -->
+	<script src="js/angular-translate_2.5.2.js"></script>
+	<script src="locales/en.js"></script>
+	<script src="locales/de.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/helpers.js"></script>
+	<script src="js/authentication.js"></script>
+	<script src="js/exercise.js"></script>
+	<script src="js/plan.js"></script>
+	<script src="js/instantExercises.js"></script>
+</head>
+<body class="platform-android platform-cordova platform-webview">
+	<ion-side-menus>
+		<ion-side-menus enable-menu-with-back-views="false">
+		<ion-side-menu-content ng-controller="NavCtrl">
+			<ion-nav-bar class="bar-balanced" align-title="center">
+				<ion-nav-back-button class="button-icon ion-arrow-left-c" translate="BUTTON_BACK">
+					Back
+				</ion-nav-back-button>
+				<ion-nav-buttons side="left">
+					<button menu-toggle="left" class="button button-icon icon ion-navicon" ng-hide="$state.current.name === &apos;signin&apos; || $state.current.name === &apos;forgotpassword&apos; || $state.current.name === &apos;signup&apos; ">
+					</button>
+				</ion-nav-buttons>
+			</ion-nav-bar>
+			<ion-nav-view animation="slide-left-right">
+			</ion-nav-view>
+		</ion-side-menu-content>
+		<ion-side-menu side="left">
+			<ion-header-bar class="bar bar-header bar-balanced-dark" align-title="center">
+				<h1 class="title" translate="MENU_LIST_SETTINGS">
+					Settings
+				</h1>
+			</ion-header-bar>
+			<ion-content has-header="true">
+				<ul class="list">
+					<li>
+						<a class="item" menu-close="" href="#/tab/home" translate="MENU_LIST_HOME">
+							Home
+						</a>
+					</li>
+					<li>
+						<a class="item" menu-close="" href="#/tab/settings" translate="MENU_LIST_SETTINGS">
+							Settings
+						</a>
+					</li>
+					<!--<li>
+						<a class="item" menu-close="" href="#/tab/setup" translate="MENU_LIST_WORKPLACE_SETUP">
+							Workplace Setup
+						</a>
+					</li>-->
+					<li>
+						<a class="item" menu-close="" href="#/tab/about" translate="MENU_LIST_ABOUT_US">
+							About us
+						</a>
+					</li>
+					<li>
+						<a class="item" menu-close="" href="#/tab/contact" translate="MENU_LIST_CONTACT">
+							Contact
+						</a>
+					</li>
+					<li>
+						<a class="item" menu-close="" href="#/tab/sign-out" translate="MENU_LIST_SIGN_OUT">
+							Sign out
+						</a>
+					</li>
+				</ul>
+			</ion-content>
+		</ion-side-menu>
+	</ion-side-menus>
+</ion-side-menus></body>
+</html>

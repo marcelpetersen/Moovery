@@ -1,0 +1,30 @@
+<ion-view view-title="{{'SIGN_UP_NAVBAR_TITLE' | translate}}">
+	<ion-content class="forgot-password-background login-form">
+		<div class="login-form-wrapper login-form-wrapper-big">
+			<form name='signUpForm' class="width-70">
+				<label class="item item-input centered-with-icon border-radius-top">
+					<input type="email" name="emailAddress" ng-model="mailAddress" placeholder="{{'SIGN_IN_INPUT_EMAIL_ADDRESS' | translate}}" overwrite-email required>
+					<i class="icon ion-checkmark balanced padding-right" ng-show="signUpForm.emailAddress.$valid">
+					</i>
+					<i class="icon ion-close assertive padding-right" ng-show="signUpForm.emailAddress.$error.email">
+					</i>
+				</label>
+				<label class="item item-input centered-with-icon">
+					<input id="email" name="email" type="password" ng-model="password" placeholder="{{'SIGN_IN_INPUT_PASSWORD' | translate}}" required />
+				</label>
+				<label class="item item-input centered-with-icon border-radius-bottom">
+					<input name="passwordConfirm" type="password" ng-model="passwordConfirm" placeholder="{{'SIGN_UP_INPUT_PASSWORD_CONFIRM' | translate}}" match="password" required/>
+					<i class="icon ion-checkmark balanced padding-right" ng-show="signUpForm.passwordConfirm.$valid">
+					</i>
+					<i class="icon ion-close assertive padding-right" ng-show="signUpForm.passwordConfirm.$error.mismatch">
+					</i>
+				</label>
+				<button ng-disabled='signUpForm.$invalid' class="button button-block button-balanced" ng-click="signUp(mailAddress, password)">
+					<strong translate="SIGN_UP_BUTTON_SIGN_UP">
+						Sign up
+					</strong>
+				</button>
+			</form>
+		</div>
+	</ion-content>
+</ion-view>

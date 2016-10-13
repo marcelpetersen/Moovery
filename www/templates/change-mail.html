@@ -1,0 +1,23 @@
+<ion-view view-title="{{ 'CHANGE_MAIL_NAVBAR_TITLE' | translate }}">
+	<ion-content class="center">
+		<div class="width-70 margin-50">
+			<form name="changeMailForm" ng-submit="changeMail(newMail.mail, newMail.confirmPassword)">
+				<label class="item item-input centered-with-icon border-radius-top">
+					<input type="email" name="input" ng-model="newMail.mail" placeholder="{{'CHANGE_EMAIL_INPUT_NEW_EMAIL' | translate}}" overwrite-email required>
+					<i class="icon ion-checkmark balanced padding-right" ng-show="changeMailForm.input.$valid">
+					</i>
+					<i class="icon ion-close assertive padding-right" ng-show="changeMailForm.input.$error.email">
+					</i>
+				</label>
+				<label class="item item-input border-radius-bottom">
+					<input type="password" ng-model="newMail.confirmPassword" placeholder="{{'CHANGE_EMAIL_INPUT_PASSWORD' | translate}}" required>
+				</label>
+				<button type="submit" ng-disabled="changeMailForm.$invalid" class="button button-block button-balanced">
+					<strong translate="CHANGE_EMAIL_BUTTON_CHANGE">
+						Change
+					</strong>
+				</button>
+			</form>
+		</div>
+	</ion-content>
+</ion-view>
