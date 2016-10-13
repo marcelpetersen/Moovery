@@ -16,7 +16,9 @@ App.factory('Authentication', ['$firebaseAuth', function($firebaseAuth) {
 	return Authentication;
 }]);
 
-App.controller('SignUpCtrl', function($scope, $rootScope, $state, $sce, $ionicSideMenuDelegate, $translate, Authentication, ShowAlert, User) {
+App.controller('SignUpCtrl', function($scope, $rootScope,$ionicLoading, $state, $sce, $ionicSideMenuDelegate, $translate, Authentication, ShowAlert, User) {
+
+
 
 	// Disable toggling of left menu by swipe
 	$ionicSideMenuDelegate.canDragContent(false);
@@ -27,6 +29,8 @@ App.controller('SignUpCtrl', function($scope, $rootScope, $state, $sce, $ionicSi
 	var created = Firebase.ServerValue.TIMESTAMP;
 	
 	$scope.signUp = function(mailAddress, password){
+		
+		
 
 		// Confirm mail address in a popup
 		var popUp = ShowAlert.confirm($translate.instant('SIGN_UP_POPUP_TITLE'), $translate.instant('SIGN_UP_POPUP_CONTENT_1') + mailAddress + $translate.instant('SIGN_UP_POPUP_CONTENT_2'), $translate.instant('SIGN_UP_POPUP_CANCEL'), $translate.instant('SIGN_UP_POPUP_CONFIRM'));
@@ -34,13 +38,13 @@ App.controller('SignUpCtrl', function($scope, $rootScope, $state, $sce, $ionicSi
 		popUp.then(function(res) {
 
 			if(res) {
-				
+				//show progress bar
+			    $ionicLoading.show();
 				$scope.auth.$createUser({
 					email: mailAddress,
 					password: password
 				})
 				.then(function(userData) {
-
 					// Sign in
 					return $scope.auth.$authWithPassword({
 						email: mailAddress,
@@ -50,7 +54,7 @@ App.controller('SignUpCtrl', function($scope, $rootScope, $state, $sce, $ionicSi
 				.then(function(authData) {
 					
 					ShowAlert.alert($translate.instant('SIGN_UP_POPUP_SUCCESS'));
-
+$
 					// Add data to user's node (is not 'account'-node!)
 					User.addToUsersNode(authData.uid, authData.password.email, 'first name', 'last name', created, 10, 'Abandoned Users', 36, 1, false, false);
 
@@ -95,13 +99,14 @@ App.controller('SignUpCtrl', function($scope, $rootScope, $state, $sce, $ionicSi
 					// Get data of a user
 					// = Data from users' node, NOT account
 					User.getData(authData.uid, function(data){
-
+                        $ionicLoading.hide();
 						$rootScope.userId = authData.uid;
 						$rootScope.userData = data.val();
 						$state.go('tabs.home');
 					});
 				})
 				.catch(function(error) {
+					$ionicLoading.hide();
 					switch (error.code) {
 						case 'EMAIL_TAKEN':
 							ShowAlert.alert($translate.instant('SIGN_UP_POPUP_FAILURE_EMAIL_TAKEN_TITLE'), $translate.instant('SIGN_UP_POPUP_FAILURE_EMAIL_TAKEN_CONTENT_1') + mailAddress + $translate.instant('SIGN_UP_POPUP_FAILURE_EMAIL_TAKEN_CONTENT_2'));
@@ -115,13 +120,14 @@ App.controller('SignUpCtrl', function($scope, $rootScope, $state, $sce, $ionicSi
 					default:
 						ShowAlert.alert($translate.instant('SIGN_UP_POPUP_FAILURE_DEFAULT_TITLE'), $translate.instant('SIGN_UP_POPUP_FAILURE_DEFAULT_CONTENT'));
 					}
+					
 				});
 			} 
 		});		
 	};
 });
 
-App.controller('SignInCtrl', function($scope, $rootScope, $state, $ionicSideMenuDelegate, $translate, Authentication, ShowAlert, User) {
+App.controller('SignInCtrl', function($scope,$ionicLoading,$rootScope, $state, $ionicSideMenuDelegate, $translate, Authentication, ShowAlert, User) {
 	
 	// Disable toggling of left menu by swipe
 	$ionicSideMenuDelegate.canDragContent(false);
@@ -129,7 +135,8 @@ App.controller('SignInCtrl', function($scope, $rootScope, $state, $ionicSideMenu
 	$scope.auth = Authentication.firebaseAuth();
 
 	$scope.signIn = function(user, password) {
-
+	    //show progress 
+		$ionicLoading.show();
 		// If no user defined, abandon
 		// As send button is disabled before input, this should never trigger
 		if (!user) {
@@ -187,6 +194,8 @@ App.controller('SignInCtrl', function($scope, $rootScope, $state, $ionicSideMenu
 			// = Data from users' node, NOT account
 			User.getData(authData.uid, function(data){
 
+			    $ionicLoading.hide();
+				
 				$rootScope.userId = authData.uid;
 				$rootScope.userData = data.val();
 
@@ -202,6 +211,7 @@ App.controller('SignInCtrl', function($scope, $rootScope, $state, $ionicSideMenu
 			});
 		})
 		.catch(function(error) {
+			$ionicLoading.hide();
 			switch (error.code) {
 				case 'INVALID_EMAIL':
 					ShowAlert.alert($translate.instant('SIGN_UP_POPUP_FAILURE_EMAIL_INVALID_TITLE'), $translate.instant('SIGN_UP_POPUP_FAILURE_EMAIL_INVALID_CONTENT_1') + user + $translate.instant('SIGN_UP_POPUP_FAILURE_EMAIL_INVALID_CONTENT_2'));
@@ -218,6 +228,7 @@ App.controller('SignInCtrl', function($scope, $rootScope, $state, $ionicSideMenu
 				default:
 					ShowAlert.alert($translate.instant('SIGN_UP_POPUP_FAILURE_DEFAULT_TITLE'), $translate.instant('SIGN_UP_POPUP_FAILURE_DEFAULT_CONTENT'));
 			}
+			
 		});
 	};
 });
@@ -257,7 +268,7 @@ App.controller('ResetPasswordCtrl', function($scope, $ionicSideMenuDelegate, $io
 });
 
 // Change email functionality
-App.controller('ChangeMailCtrl', function($scope, $translate, $state, Authentication, ShowAlert) {
+App.controller('ChangeMailCtrl', function($scope,$ionicLoading, $translate, $state, Authentication, ShowAlert) {
 
 	var ref = new Firebase('https://moovery.firebaseio.com');
 
@@ -266,7 +277,9 @@ App.controller('ChangeMailCtrl', function($scope, $translate, $state, Authentica
 	$scope.newMail = {};
 
 	$scope.changeMail = function(){
-
+      
+	 $ionicLoading.show();
+	
 		var firebase = Authentication.url();
 	
 		firebase.changeEmail({
@@ -274,7 +287,9 @@ App.controller('ChangeMailCtrl', function($scope, $translate, $state, Authentica
 			newEmail: $scope.newMail.mail,
 			password: $scope.newMail.confirmPassword
 		}, function(error) {
-
+             
+			 //hide progress
+			$ionicLoading.hide();
 			// If failure
 			if(error) {
 				switch(error.code) {
@@ -287,6 +302,7 @@ App.controller('ChangeMailCtrl', function($scope, $translate, $state, Authentica
 					default:
 						ShowAlert.alert($translate.instant('CHANGE_MAIL_POPUP_FAILURE_DEFAULT_TITLE'), $translate.instant('CHANGE_MAIL_POPUP_FAILURE_DEFAULT_ERROR'));
 				}
+				
 			}
 
 			// If success
@@ -294,28 +310,37 @@ App.controller('ChangeMailCtrl', function($scope, $translate, $state, Authentica
 				ShowAlert.alert($translate.instant('CHANGE_MAIL_POPUP_SUCCESS_CHANGE_MAIL_TITLE'), $translate.instant('CHANGE_MAIL_POPUP_SUCCESS_CHANGE_MAIL_CONTENT'));
 				$state.go('tabs.home');
 			}
+			
 		});
 	};
 });
 
-App.controller('ChangePasswordCtrl', function($scope, $translate, $state, Authentication, ShowAlert) {
+App.controller('ChangePasswordCtrl', function($scope,$ionicLoading,$translate, $state, Authentication, ShowAlert) {
 	
 	// Get user data
 	$scope.auth = Authentication.firebaseAuth();
 	$scope.user = $scope.auth.$getAuth();
 
+	
 	$scope.changePassword = function(oldPassword, newPassword){
 
+	    $ionicLoading.show();
+	
 		$scope.auth.$changePassword({
 			email: $scope.user.password.email,
 			oldPassword: oldPassword,
 			newPassword: newPassword
 		})
 		.then(function() {
+			$ionicLoading.hide();
 			ShowAlert.alert($translate.instant('CHANGE_PASSWORD_POPUP_SUCCESS_CHANGE_MAIL_TITLE'), $translate.instant('CHANGE_PASSWORD_POPUP_SUCCESS_CHANGE_MAIL_CONTENT'));
-			$state.go('tabs.home');
+		    $state.go('tabs.home');
+			
 		})
 		.catch(function(error) {
+			
+			$ionicLoading.hide();
+			
 			switch(error.code) {
 				case 'INVALID_EMAIL':
 					ShowAlert.alert($translate.instant('SIGN_UP_POPUP_FAILURE_EMAIL_INVALID_TITLE'), $translate.instant('SIGN_UP_POPUP_FAILURE_EMAIL_INVALID_CONTENT_1') + user + $translate.instant('SIGN_UP_POPUP_FAILURE_EMAIL_INVALID_CONTENT_2'));
@@ -332,6 +357,7 @@ App.controller('ChangePasswordCtrl', function($scope, $translate, $state, Authen
 				default:
 					ShowAlert.alert($translate.instant('SIGN_UP_POPUP_FAILURE_DEFAULT_TITLE'), $translate.instant('SIGN_UP_POPUP_FAILURE_DEFAULT_CONTENT'));
 			}
+			
 		});
 	};
 });

@@ -118,9 +118,11 @@ App.controller('languageSelectCtlr', function($scope, $translate, $rootScope){
 	};
 });
 
-App.controller('SettingsController', function($scope, $translate,$cordovaLocalNotification,$ionicPlatform) {
+App.controller('SettingsController', function($scope,$translate,$cordovaLocalNotification) {
 	
 	var value=false;
+	var now = new Date().getTime();
+     
 	
 	if($translate.use() === 'en' ){
 		$scope.languageSelectModel = 'en';
@@ -133,11 +135,48 @@ App.controller('SettingsController', function($scope, $translate,$cordovaLocalNo
 	if(value==false)
 	{
 		value=true;
+		$scope.isEnableNotification=value;
+		$scope.setNotificationOnEveryDay();
 	}else{
 		value=false;
+		$scope.isEnableNotification=value;
+		$scope.cancelNotification();
 	}
-	$scope.isEnableNotification=value;
+	
 	};
-	//call notification
+	
+	//enable Notification
+	$scope.setNotificationOnEveryDay=function()
+	{
+		    var today = new Date();
+			var time=document.getElementById('time').value;
+			var date=today.getDate();
+			
+			var schedule_time = new Date((date + " " + time).replace(/-/g, "/")).getTime();
+            alert(schedule_time);
+			/*schedule_time = new Date(schedule_time);
+			
+				$cordovaLocalNotification.schedule({
+					id: 1,
+					text: 'Moovery Notification',
+					title: 'Moovery',
+					firstAt: time,
+                    every: 'day',
+				}).then(function () {
+					alert("Notification set");
+				});;	*/
+				
+	}
+	           
+			   //Cancel a Notification
+                $scope.cancelNotification = function() {
+                 $cordovaLocalNotification.isPresent(1).then(function(present) {
+                    if (present) {
+                        $cordovaLocalNotification.cancel(1).then(function(result) {
+                                console.log('Notification  Cancelled');
+                            });
+                        }
+                    });
+				}
 	
 });

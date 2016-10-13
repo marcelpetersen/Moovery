@@ -66,13 +66,14 @@
 			<div class="item item-divider" translate="SETTINGS_DIVIDER_BASICS">
 				Notifications
 			</div>
-			<ion-toggle toggle-class="toggle-balanced" ng-model="value" ng-change="NotificationtoggleChange()" id="notificationtoggle1">Notifications</ion-toggle>
-			<div ng-hide="!isEnableNotification">
+			<ion-toggle toggle-class="toggle-balanced" ng-model="value" ng-change="NotificationtoggleChange()" id="notificationtoggle1" placeholder="Placeholder 2">
+		   <h2>Notifications</h2>
+           <p>Reminds you to excercise</p></ion-toggle>
+		  <div ng-hide="!isEnableNotification">
 		   <label class="item item-input" id="notificationTimeInput">
                 <span class="input-label">Input</span>
-                <input type="time" placeholder="">
+                <input type="time" 	 placeholder="">
             </label>
-			<button class="button button-dark" ng-click="scheduleInstantNotification()">Test</button>
             <ion-toggle toggle-class="toggle-balanced"  id="page-toggle2">Also on weekends</ion-toggle>
 			</div>
 			<div class="item item-divider" translate="SETTINGS_DIVIDER_BASICS">
